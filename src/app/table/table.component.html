@@ -1,0 +1,19 @@
+<table id="customers">
+    <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+        <th>Xóa</th>
+    </tr>
+    <tr *ngFor="let tungCai of data">
+        <td>{{tungCai.id}}</td>
+        <td>{{tungCai.body}}</td>
+        <td>{{tungCai.postId}}</td>
+        <td>
+            <button (click)="deleteComment(tungCai.id)">Xoa</button>
+        </td>
+
+    </tr>
+    <button (click)="Themdata()">Them mới</button>
+    <button (click)="DaThemdata()">Xóa</button>
+</table>

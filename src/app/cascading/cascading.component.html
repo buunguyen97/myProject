@@ -1,0 +1,15 @@
+<br>
+<label for="cars">Chọn Thành Phố: </label>
+
+<select name="cars" id="city" (change)="changeCity($event)">
+    <option *ngFor="let tp of cities" value="{{tp.city}}">{{tp.city}} </option>
+
+</select>
+
+<br>
+<label for="cars">Chọn Tỉnh: </label>
+
+<select name="cars" id="cars">
+    <option *ngFor="let district of districts ">{{district}}</option>
+
+</select>

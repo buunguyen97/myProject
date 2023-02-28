@@ -1,0 +1,49 @@
+<h1 class="myapp">home works! {{ name | uppercase }} and {{ age }}</h1>
+<h1>Counter: {{counter}}</h1>
+<h1 [appHightLight]="color">aaaaaaaaaaaaaaaaaaaaaa</h1>
+<br/>
+<span *ngIf="age < 18; then condition1; else condition2" class="overAge">
+</span>
+<ng-template #condition1>
+    <span class="underAge">Bạn dưới 18 tủi</span>
+</ng-template>
+<ng-template #condition2
+><span class="overAge">Bạn trên 18 tủi rồi</span>
+</ng-template>
+<br/>
+
+<input [(ngModel)]="name"/>
+<br/><br/><br/>
+
+<button (click)="tangTuoi()">thay doi</button><br/><br/><br/>
+
+<br/><br/><br/>
+
+Danh sách xe: <br/>
+<ul *ngFor="let vehicle of vehicles">
+    <li>{{ vehicle }}</li>
+</ul>
+
+<select>
+    <option *ngFor="let vehicle of vehicles">{{ vehicle }}</option>
+</select>
+<br/>
+<input/>
+<br/><br/><br/><br/><br/><br/><br/>
+
+<table>
+    <tr>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Giá</th>
+    </tr>
+    <tr *ngFor="let trai of traicay; let i = index">
+        <td>{{i + 1}}</td>
+        <td [ngClass]="{'underAge':trai.gia <0} ">{{trai.ten}}</td>
+        <td>{{trai.gia |  currency: "VND"     }}</td>
+    </tr>
+
+</table>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>

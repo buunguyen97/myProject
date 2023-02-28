@@ -1,0 +1,7 @@
+<p>reactive-form works!</p>
+<form [formGroup]="formData" (ngSubmit)="onSubmit()">
+    Name: <input formControlName="name" type="text"/>
+    <br>
+    <!--    <button type="submit" (click)="submitForm()">Submit</button>-->
+    <button type="submit">Submit</button>
+</form>
