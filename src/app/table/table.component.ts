@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { HttpServerService } from '../Server/http-server.service';
+import {Component} from '@angular/core';
+import {HttpServerService} from '../Server/http-server.service';
 
 @Component({
   selector: 'app-table',
@@ -7,7 +7,8 @@ import { HttpServerService } from '../Server/http-server.service';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent {
-  constructor(private httpServerService: HttpServerService) {}
+  constructor(private httpServerService: HttpServerService) {
+  }
 
   public data: any[] = [];
 
@@ -18,7 +19,7 @@ export class TableComponent {
   }
 
   public Themdata() {
-    const payload = { body: 'some 3', postId: 3 };
+    const payload = {body: 'some 3', postId: 3};
     this.httpServerService.postComment(payload).subscribe((data) => {
       this.httpServerService.getComments().subscribe((response: any[]) => {
         this.data = response;
@@ -33,24 +34,21 @@ export class TableComponent {
 
   deleteComment(id: number): void {
     this.httpServerService.deleteComment(id).subscribe(
-      () => {
-        console.log(`Comment with id ${id} was deleted successfully.`);
-        this.httpServerService.getComments().subscribe((response: any[]) => {
-          this.data = response;
-        });
-      },
-      (error) => {
-        console.error(`Failed to delete comment with id ${id}: ${error}`);
-      },
-      () => {
-        console.log('Delete comment request completed');
-      }
+        () => {
+          console.log(`Comment with id ${id} was deleted successfully.`);
+          this.httpServerService.getComments().subscribe((response: any[]) => {
+            this.data = response;
+          });
+        },
+        (error) => {
+          console.error(`Failed to delete comment with id ${id}: ${error}`);
+        },
+        () => {
+          console.log('Delete comment request completed');
+        }
     );
   }
 
-  DaThemdata(): void {
-    this.httpServerService.DadeleteComment().subscribe(() => {});
-  }
 
   // public getComments(): void {
   //   this.httpServerService.getComments().subscribe((response: any[]) => {
